@@ -1,0 +1,19 @@
+# .gitleaks.toml — portfolio
+title = "Portfolio Gitleaks Config"
+
+[allowlist]
+description = "Faux positifs connus"
+regexes = [
+  # Clés de test dans les tests unitaires
+  '''test.*token.*=.*["']test''',
+  # Variables d'env exemple
+  '''EXAMPLE_''',
+  # Config Vite (VITE_API_URL dans les workflows n'est pas un secret)
+  '''VITE_API_URL'''
+]
+paths = [
+  '''.*\.spec\.ts$''',
+  '''.*\.test\.ts$''',
+  # LibreTranslate — projet tiers, pas nos secrets
+  '''LibreTranslate/'''
+]
